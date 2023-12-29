@@ -1,0 +1,30 @@
+{
+  "name": "user-management-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/user-management-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/user-management-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "user-management:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "user-management:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "user-management:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["user-management"]
+}
