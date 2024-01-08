@@ -1,7 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "include": ["src/**/*.ts", "../shell/src/remotes.d.ts"],
-  "compilerOptions": {
-    "types": ["jest", "node"]
-  }
-}
